@@ -1,4 +1,4 @@
-use crate::log;
+use crate::logs;
 use crate::network;
 
 pub fn run() {
@@ -27,7 +27,7 @@ fn handle_scan(args: &Vec<String>) {
     }
 
     match args[2].as_str() {
-        "log" => log::scan_logs(),
+        "logs" => logs::scan_logs(),
         "network" => network::scan_network(),
         _ => println!("Unknown scan type."),
     }
