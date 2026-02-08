@@ -1,275 +1,293 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>HealthOps_rs — CLI Tool for Health Operations</title>
-
-  <style>
-    :root {
-      --blue: #0b63ce;
-      --cyan: #4ecdc4;
-      --army: #6b7f6a;
-      --bg-light: #f4f8fb;
-      --bg-gradient: linear-gradient(135deg, #e6f2ff, #eafaf7);
-      --card-bg: #ffffff;
-      --text-dark: #1f2933;
-      --text-muted: #5f6c7b;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text-dark);
-      background: var(--bg-gradient);
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      color: white;
-      padding: 60px 24px 50px;
-    }
-
-    header .container {
-      max-width: 960px;
-      margin: auto;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin: 10px 0;
-    }
-
-    h2 {
-      color: var(--blue);
-      margin-top: 0;
-    }
-
-    p.small {
-      color: rgba(255,255,255,0.9);
-      max-width: 700px;
-    }
-
-    .tags span {
-      display: inline-block;
-      background: rgba(255,255,255,0.2);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      margin-right: 8px;
-      margin-bottom: 8px;
-    }
-
-    section {
-      max-width: 960px;
-      margin: auto;
-      padding: 50px 24px;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      border-top: 6px solid var(--cyan);
-    }
-
-    .card.army {
-      border-top-color: var(--army);
-    }
-
-    .card.blue {
-      border-top-color: var(--blue);
-    }
-
-    pre {
-      background: var(--bg-light);
-      padding: 16px;
-      border-radius: 10px;
-      overflow-x: auto;
-    }
-
-    a {
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 10px;
-      background: var(--blue);
-      color: white;
-      margin-top: 10px;
-    }
-
-    .btn.secondary {
-      background: var(--army);
-    }
-
-    footer {
-      background: #1f2933;
-      color: #cbd2d9;
-      padding: 30px 24px;
-      font-size: 14px;
-    }
-
-    footer a {
-      color: var(--cyan);
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HealthOps_rs — Monitor Healthcare Systems Safely</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
-
 <body>
 
-<header>
-  <div class="container">
-    <div class="tags">
-      <span>Rust</span>
-      <span>CLI</span>
-      <span>Automation</span>
-      <span>Health IT</span>
-    </div>
-
-    <h1>HealthOps_rs</h1>
-    <p class="small">
-      A lightweight command-line tool for monitoring health-system logs and network activity.
-      Built with Unix-style text processing concepts in Rust.
-    </p>
-  </div>
-</header>
-
-<section>
-  <h2>The Problem</h2>
-  <p>
-    Small clinics, labs, and student health projects often rely on manual checks of logs and network activity.
-    This is slow and error-prone. HealthOps_rs automates these checks and highlights potential issues early.
-  </p>
-</section>
-
-<section>
-  <h2>Core Features</h2>
-
-  <div class="card-grid">
-    <div class="card blue">
-      <h3>Log Scanning</h3>
-      <ul>
-        <li>Counts total log lines</li>
-        <li>Detects error patterns</li>
-        <li>Warns when thresholds are exceeded</li>
-      </ul>
-    </div>
-
-    <div class="card army">
-      <h3>Network Monitoring</h3>
-      <ul>
-        <li>Reads OS network data</li>
-        <li>Counts active connections</li>
-        <li>Flags abnormal behaviour</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Developer Workflow</h3>
-      <ul>
-        <li>Fast CLI execution</li>
-        <li>Simple commands</li>
-        <li>Easy to extend</li>
-      </ul>
+  <div class="bar">
+    <div class="wrap">
+      <div class="row">
+        <div class="brand"><div class="mark">❤</div>HealthOps<span style="color:var(--c)">_rs</span></div>
+        <div class="nav">
+          <a href="#challenge">Challenge</a>
+          <a href="#features">Features</a>
+          <a href="#how">Docs</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#download">Download</a>
+        </div>
+        <a class="btn" href="https://github.com/Obeng-Sam10/HEALTHOPS_RS" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
   </div>
-</section>
 
-<section>
-  <h2>How to Use</h2>
+  <header>
+    <div class="wrap">
+      <div class="hero">
+        <div>
+          <div class="kicker"><i>&gt;_</i> Lightweight CLI Tool</div>
+          <h1>Monitor Healthcare <span class="grad">Systems Safely</span></h1>
+          <p class="sub">
+            A lightweight command-line tool for monitoring healthcare logs, network activity, and system workflows.
+            Built with Rust for safety and efficiency.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#download">Download from GitHub</a>
+            <a class="btn" href="#how">View Documentation</a>
+          </div>
+          <p class="mini">Designed to be simple to run, fast to understand, and easy to integrate into operational routines.</p>
+        </div>
 
-  <pre><code>
-# Show help
+        <div class="demo">
+          <div class="top">
+            <div class="dots" aria-hidden="true"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="lab">HealthOps Monitor</div>
+          </div>
+          <div class="term">
+            <div class="line"># Scan logs for anomalies</div>
+            <div class="line"><span class="cmd">$</span> healthops_rs scan logs</div>
+            <div class="line"><span class="ok">✓</span> Processed 10,432 entries</div>
+            <div class="line"><span class="warn">△</span> 3 warnings detected</div>
+            <div class="line"><span class="bad">✕</span> 1 critical error found</div>
+            <div class="line" style="margin-top:14px;"># Check network activity</div>
+            <div class="line"><span class="cmd">$</span> healthops_rs scan network</div>
+            <div class="line"><span class="ok">✓</span> 28 active connections</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="challenge">
+    <div class="wrap">
+      <div class="title">
+        <h2>The challenge</h2>
+        <p>Operational signals are often buried in large logs and routine system noise.</p>
+      </div>
+      <div class="grid">
+        <div class="card c6">
+          <h3>High volume, low clarity</h3>
+          <p>Logs, network traffic, and system events accumulate quickly. Manual checking is slow and inconsistent.</p>
+          <ul>
+            <li>Errors can be missed until users report issues</li>
+            <li>Routine checks take time</li>
+            <li>Teams need fast signals, not complex dashboards</li>
+          </ul>
+        </div>
+        <div class="card c6">
+          <h3>A practical approach</h3>
+          <p>HealthOps_rs focuses on essentials: scanning, counting, and threshold-based warnings that fit real workflows.</p>
+          <ul>
+            <li>Runs in a terminal</li>
+            <li>Outputs clear summaries</li>
+            <li>Works with scripts and scheduled jobs</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="title">
+        <h2>Features</h2>
+        <p>Aligned with course focus: developer workflow, network automation, and text processing.</p>
+      </div>
+      <div class="grid">
+        <div class="card c4">
+          <h3>Log scanning</h3>
+          <p>Summarize logs, detect error patterns, surface anomalies.</p>
+          <ul>
+            <li>Counts lines and error matches</li>
+            <li>Highlights spikes and thresholds</li>
+            <li>Readable output for quick decisions</li>
+          </ul>
+        </div>
+        <div class="card c4">
+          <h3>Network monitoring</h3>
+          <p>Observe connection activity and flag unusual levels.</p>
+          <ul>
+            <li>Counts active connections (lightweight)</li>
+            <li>Useful for incident checks</li>
+            <li>No heavy setup required</li>
+          </ul>
+        </div>
+        <div class="card c4">
+          <h3>Workflow automation</h3>
+          <p>Repeatable checks that integrate into routines.</p>
+          <ul>
+            <li>Scriptable CLI commands</li>
+            <li>Consistent reporting format</li>
+            <li>Easy to extend over time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="title">
+        <h2>Documentation</h2>
+        <p>Simple pipeline: read → filter → count → apply rules → print a report.</p>
+      </div>
+      <div class="grid">
+        <div class="card c6">
+          <h3>Command examples</h3>
+          <ul>
+            <li><b>Help</b> shows available commands</li>
+            <li><b>scan logs</b> summarizes logs and warnings</li>
+            <li><b>scan network</b> reports connection activity</li>
+          </ul>
+        </div>
+        <div class="card c6">
+          <h3>Try it</h3>
+          <pre><code># Help
 cargo run help
 
-# Scan log files
+# Scan logs
 cargo run scan logs
 
-# Monitor network activity
-cargo run scan network
-  </code></pre>
-</section>
-
-<section>
-  <h2>Download</h2>
-
-  <div class="card-grid">
-    <div class="card blue">
-      <h3>Linux (ARM / aarch64)</h3>
-      <p>Required for exam submission.</p>
-      <a class="btn"
-         href="https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases"
-         target="_blank">
-         Download from GitHub Releases
-      </a>
+# Scan network activity
+cargo run scan network</code></pre>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="card army">
-      <h3>Linux (x86_64)</h3>
-      <p>Bonus platform build.</p>
-      <a class="btn secondary"
-         href="https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases"
-         target="_blank">
-         Download from GitHub Releases
-      </a>
+  <section id="pricing">
+    <div class="wrap">
+      <div class="title">
+        <h2>Pricing</h2>
+        <p>Neutral packaging: higher tiers add automation, customization, and operational reporting.</p>
+      </div>
+
+      <div class="plans">
+        <div class="card plan">
+          <div class="row" style="padding:0">
+            <h3 style="margin:10px 0 0">Community</h3>
+            <span class="pill">Free</span>
+          </div>
+          <div class="money">€0</div>
+          <ul>
+            <li>Manual log + network checks</li>
+            <li>Basic summaries</li>
+            <li>Default thresholds</li>
+            <li>Local usage</li>
+          </ul>
+        </div>
+
+        <div class="card plan" style="box-shadow:0 0 0 3px rgba(54,224,214,.16), var(--sh);">
+          <div class="row" style="padding:0">
+            <h3 style="margin:10px 0 0">Plus</h3>
+            <span class="pill pop">Popular</span>
+          </div>
+          <div class="money">€7.99 <small>/ month</small></div>
+          <div class="money" style="margin-top:6px">€69.99 <small>/ year</small></div>
+          <ul>
+            <li>Everything in Community</li>
+            <li>Custom thresholds</li>
+            <li>Saved scan profiles</li>
+            <li>Scheduled runs (cron-friendly)</li>
+            <li>Export summaries (text/CSV-style)</li>
+          </ul>
+        </div>
+
+        <div class="card plan">
+          <div class="row" style="padding:0">
+            <h3 style="margin:10px 0 0">Pro</h3>
+            <span class="pill">Advanced</span>
+          </div>
+          <div class="money">€18.99 <small>/ month</small></div>
+          <div class="money" style="margin-top:6px">€179.99 <small>/ year</small></div>
+          <ul>
+            <li>Everything in Plus</li>
+            <li>Advanced rule sets</li>
+            <li>Multi-system profiles</li>
+            <li>Trend-ready structured output</li>
+            <li>Priority support channel</li>
+          </ul>
+        </div>
+
+        <div class="card c12">
+          <div class="row" style="padding:0">
+            <h3 style="margin:10px 0 0">Lifetime</h3>
+            <span class="pill">One-time</span>
+          </div>
+          <div class="money">€299.99</div>
+          <p style="margin-top:10px;color:var(--mut)">
+            Includes full Pro features with lifetime updates and commercial usage rights.
+          </p>
+          <ul>
+            <li>All Pro features</li>
+            <li>Lifetime updates</li>
+            <li>Commercial usage rights</li>
+            <li>Priority support channel</li>
+          </ul>
+          <p class="mini" style="margin-top:12px">
+            Pricing represents product packaging strategy; payments are not implemented in this course project.
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section>
-  <h2>Users & Pricing</h2>
+  <section id="download">
+    <div class="wrap">
+      <div class="title">
+        <h2>Download</h2>
+        <p>Latest binaries are published on GitHub Releases (aarch64 and x86_64).</p>
+      </div>
+      <div class="grid">
+        <div class="card c8">
+          <h3>GitHub Releases</h3>
+          <p>Prebuilt Linux binaries are published automatically by GitHub Actions.</p>
+          <div class="actions" style="margin-top:14px">
+            <a class="btn primary" href="https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases" target="_blank" rel="noopener">Download from GitHub</a>
+            <a class="btn" href="https://github.com/Obeng-Sam10/HEALTHOPS_RS" target="_blank" rel="noopener">View Repository</a>
+          </div>
+          <p class="mini" style="margin-top:12px">
+            Tip: choose the newest release tag and select the asset that matches your Linux architecture.
+          </p>
+        </div>
+        <div class="card c4">
+          <h3>Quick start</h3>
+          <pre><code>git clone https://github.com/Obeng-Sam10/HEALTHOPS_RS.git
+cd HEALTHOPS_RS
+cargo run help</code></pre>
+        </div>
+      </div>
 
-  <div class="card-grid">
-    <div class="card">
-      <h3>Target Users</h3>
-      <ul>
-        <li>Small clinics & labs</li>
-        <li>Health informatics students</li>
-        <li>System administrators</li>
-      </ul>
+      <div class="title" style="margin-top:26px">
+        <h2>FAQ</h2>
+        <p>Common first-time questions.</p>
+      </div>
+      <details>
+        <summary>Can I run the Linux binary on macOS?</summary>
+        <p>Linux binaries can be downloaded/extracted on macOS, but not executed directly. You can run from source with <code>cargo run</code>.</p>
+      </details>
+      <details>
+        <summary>Does it replace full monitoring platforms?</summary>
+        <p>HealthOps_rs is intentionally lightweight: fast checks and automation-friendly output rather than a full dashboard suite.</p>
+      </details>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Business Model</h3>
-      <ul>
-        <li>Free open-source core</li>
-        <li>Paid advanced features (future)</li>
-        <li>Support & training services</li>
-      </ul>
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div><strong>HealthOps_rs</strong> — CLI tool for health operations monitoring.</div>
+        <div>
+          <a class="link" href="https://github.com/Obeng-Sam10/HEALTHOPS_RS" target="_blank" rel="noopener">GitHub</a>
+          &nbsp;•&nbsp;
+          <a class="link" href="https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases" target="_blank" rel="noopener">Releases</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
-
-<footer>
-  <p>
-    HealthOps_rs — Course Project: Build & Market Your Command-Line Tool<br>
-    GitHub:
-    <a href="https://github.com/Obeng-Sam10/HEALTHOPS_RS" target="_blank">
-      Obeng-Sam10 / HEALTHOPS_RS
-    </a>
-  </p>
-</footer>
+  </footer>
 
 </body>
 </html>
