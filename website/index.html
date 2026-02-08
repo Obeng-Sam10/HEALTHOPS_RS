@@ -1,44 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>HealthOps_rs</title>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>HealthOps_rs — CLI Tool for Log & Network Monitoring</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.5; margin: 0; }
+    header, section, footer { max-width: 900px; margin: 0 auto; padding: 24px; }
+    header { padding-top: 40px; padding-bottom: 16px; }
+    .tag { display: inline-block; padding: 4px 10px; border: 1px solid #ddd; border-radius: 999px; font-size: 12px; margin-right: 8px; }
+    .hero { border-bottom: 1px solid #eee; }
+    h1 { margin: 10px 0 6px; font-size: 34px; }
+    h2 { margin-top: 0; }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { border: 1px solid #eee; border-radius: 12px; padding: 16px; }
+    code, pre { background: #f7f7f8; border-radius: 8px; }
+    pre { padding: 14px; overflow: auto; }
+    a { color: #0b63ce; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .small { color: #555; font-size: 14px; }
+    .btn { display: inline-block; padding: 10px 14px; border-radius: 10px; border: 1px solid #ddd; }
+    .btn.primary { background: #0b63ce; color: #fff; border-color: #0b63ce; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    footer { border-top: 1px solid #eee; color: #666; font-size: 13px; padding-bottom: 40px; }
+    ul { margin: 10px 0 0 18px; }
+  </style>
 </head>
 <body>
 
-<h1>HealthOps_rs</h1>
-<p>
-A lightweight command-line tool for monitoring healthcare logs,
-network activity, and system workflows.
-</p>
+  <header class="hero">
+    <span class="tag">Rust</span>
+    <span class="tag">CLI</span>
+    <span class="tag">Automation</span>
+    <span class="tag">Log + Network Monitoring</span>
 
-<h2>What problem does it solve?</h2>
-<p>
-Healthcare systems generate large amounts of log and network data.
-HealthOps_rs helps operators quickly detect unusual behavior and errors
-using simple command-line tools.
-</p>
+    <h1>HealthOps_rs</h1>
+    <p class="small">
+      A lightweight command-line tool that helps operators detect issues early by scanning log files
+      and monitoring network connections — built with Unix-style text processing in Rust.
+    </p>
 
-<h2>Features</h2>
-<ul>
-    <li>Log file scanning and error detection</li>
-    <li>Network connection monitoring</li>
-    <li>Automated alerts using simple rules</li>
-    <li>Rust-based, safe, and efficient</li>
-</ul>
+    <div class="btn-row">
+      <a class="btn primary" href="#download">Download</a>
+      <a class="btn" href="#how">How it works</a>
+      <a class="btn" href="#pricing">Pricing</a>
+      <a class="btn" href="https://github.com/Obeng-Sam10/HEALTHOPS_RS" target="_blank" rel="noopener">GitHub Repo</a>
+    </div>
+  </header>
 
-<h2>Download</h2>
-<p>
-<a href="https://github.com/Obeng-Sam10/healthops_rs">
-Download from GitHub
-</a>
-</p>
+  <section>
+    <h2>Problem</h2>
+    <p>
+      Small clinics, labs, and student projects often rely on manual checking of system logs and network activity.
+      This is slow and people miss warnings. HealthOps_rs automates the core checks and prints clear results and alerts.
+    </p>
+  </section>
 
-<h2>How to use</h2>
-<pre>
+  <section>
+    <h2>What it does</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Log Scanning</h3>
+        <p class="small">Find and count errors in log files (grep/wc ideas).</p>
+        <ul>
+          <li>Counts total lines</li>
+          <li>Counts occurrences of <code>ERROR</code></li>
+          <li>Warns when errors exceed a threshold</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Network Monitoring</h3>
+        <p class="small">Checks active connections by reading OS output (system programming).</p>
+        <ul>
+          <li>Reads connection list from the OS</li>
+          <li>Counts connections (approximation)</li>
+          <li>Warns on unusually high activity</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Developer Workflow</h3>
+        <p class="small">One command to run repeatable checks and produce consistent output.</p>
+        <ul>
+          <li>Fast CLI usage</li>
+          <li>Simple commands</li>
+          <li>Easy to extend</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How it works (simple)</h2>
+    <ol>
+      <li>You type a command in the terminal.</li>
+      <li>HealthOps_rs reads files / asks the OS for network info.</li>
+      <li>It processes the output as text (lines, matches, counts).</li>
+      <li>It prints a short report and warnings using simple rules.</li>
+    </ol>
+
+    <h3>Example commands</h3>
+    <pre><code># Help
+cargo run help
+
+# Scan logs (uses test.log in project root)
 cargo run scan logs
+
+# Scan network connections
 cargo run scan network
-</pre>
+</code></pre>
+
+    <p class="small">
+      Note: released binaries are Linux executables. On macOS you can download/extract them but you cannot run them directly.
+    </p>
+  </section>
+
+  <section id="download">
+    <h2>Download</h2>
+    <p class="small">
+      Download prebuilt Linux binaries (built automatically via GitHub Actions).
+      The aarch64 binary is required by the exam brief.
+    </p>
+
+    <!-- IMPORTANT:
+         Update the version below to match your latest release tag (e.g., v1.0.5).
+         Also update filenames if your release assets are .tar.gz instead of .tar.
+    -->
+    <div class="card">
+      <h3>Linux (ARM / aarch64) — Required</h3>
+      <p>
+        <a class="btn primary"
+           href="https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases/download/v1.0.5/healthops_rs-aarch64-unknown-linux-musl.tar"
+           target="_blank" rel="noopener">
+          Download aarch64
+        </a>
+      </p>
+      <p class="small">
+        File: <code>healthops_rs-aarch64-unknown-linux-musl.tar</code>
+      </p>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Linux (x86_64) — Bonus</h3>
+      <p>
+        <a class="btn"
+           href="https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases/download/v1.0.5/healthops_rs-x86_64-unknown-linux-musl.tar"
+           target="_blank" rel="noopener">
+          Download x86_64
+        </a>
+      </p>
+      <p class="small">
+        File: <code>healthops_rs-x86_64-unknown-linux-musl.tar</code>
+      </p>
+    </div>
+
+    <p class="small" style="margin-top:16px;">
+      Or view all versions on the <a href="https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases" target="_blank" rel="noopener">Releases page</a>.
+    </p>
+  </section>
+
+  <section id="pricing">
+    <h2>How to attract users & pricing (Digital Business)</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Target users</h3>
+        <ul>
+          <li>Small clinics / labs with limited IT staff</li>
+          <li>Health informatics students and lecturers</li>
+          <li>System admins who want a lightweight CLI checker</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>How to attract users</h3>
+        <ul>
+          <li>Open-source on GitHub with clear README</li>
+          <li>Simple installation (download binary)</li>
+          <li>Short demos and examples</li>
+          <li>Focus on a specific niche: health operations</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Pricing idea</h3>
+        <ul>
+          <li><strong>Free</strong>: basic scanning + simple alerts</li>
+          <li><strong>Pro</strong>: scheduled runs, richer reports, custom rules</li>
+          <li><strong>Support</strong>: paid setup/help for organizations</li>
+        </ul>
+        <p class="small">No payment is implemented — this is the business model concept for the course.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      HealthOps_rs — built for the course project: Build & Market your Command-Line Tool.
+      Repo: <a href="https://github.com/Obeng-Sam10/HEALTHOPS_RS" target="_blank" rel="noopener">Obeng-Sam10/HEALTHOPS_RS</a>
+    </p>
+  </footer>
 
 </body>
 </html>
