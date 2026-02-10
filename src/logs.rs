@@ -8,7 +8,7 @@ pub fn scan_logs() {
     let content = match fs::read_to_string(file_path) {
         Ok(data) => data,
         Err(_) => {
-            println!("Could not read log file.");
+            println!("Could not read logs file.");
             return;
         }
     };
@@ -16,7 +16,7 @@ pub fn scan_logs() {
     let total_lines = content.lines().count();
     let error_count = content.matches("ERROR").count();
 
-    println!("Log file: {}", file_path);
+    println!("Logs file: {}", file_path);
     println!("Total lines: {}", total_lines);
     println!("ERROR lines: {}", error_count);
 
