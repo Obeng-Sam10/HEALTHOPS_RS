@@ -8,218 +8,144 @@ The project combines **systems programming in Rust** with **product thinking and
 
 ---
 
+# HealthOps_rs
+
+HealthOps_rs is a lightweight, Rust-based command-line tool for monitoring healthcare system operations. It focuses on analyzing logs, network activity, and routine system events to surface anomalies and provide clear, automation-friendly summaries.
+
+## Table of Contents
+- Project overview
+- Motivation
+- Features
+- Installation
+- Usage examples
+- Project structure
+- Contributing
+- Roadmap
+- License
+
+## Project overview
+HealthOps_rs applies classic Unix-style pipelines (read → filter → count → summarize) using safe and efficient Rust code. It’s intended for engineers and administrators who prefer small, auditable CLI tools over heavy dashboards.
+
 ## Motivation
+Healthcare IT systems produce large volumes of logs and connection data. These signals are often inspected manually or only after an incident. HealthOps_rs enables repeatable, scriptable checks that fit into cron jobs or automation pipelines.
 
-Healthcare IT systems generate large volumes of operational data:
-- application logs  
-- network connections  
-- routine system events  
+## Key features
+- **Log analysis**: scan files, count lines and error patterns, highlight warnings and critical events, and produce concise summaries.
+- **Network monitoring**: enumerate active connections, report connection counts, and flag unusual activity levels.
+- **Automation-friendly**: consistent CLI output, machine-parseable options, and suitable for scheduled runs.
+- **Lightweight**: minimal runtime dependencies and simple, auditable code paths.
 
-These signals are often checked manually, inconsistently, or only after users report problems.
-
-**HealthOps_rs** was created to:
-- enable fast, repeatable operational checks
-- work directly from the command line
-- integrate easily into scripts and scheduled jobs
-- avoid heavy dashboards and complex monitoring platforms
-
-The focus is on **clarity, safety, and automation**.
-
----
-
-## What the Tool Does
-
-HealthOps_rs helps answer practical questions such as:
-- Are errors increasing in my logs?
-- Is network activity unusually high?
-- Can I quickly summarize system health without opening large files?
-
-It applies classic Unix-style ideas (read → filter → count → summarize), implemented safely and efficiently in Rust.
-
----
-
-## Key Features
-
-### Log Analysis
-- Scans log files
-- Counts lines and error patterns
-- Highlights warnings and critical events
-- Produces clear summaries
-
-### Network Monitoring
-- Observes active network connections
-- Reports connection counts
-- Flags unusual activity levels
-- Lightweight and non-intrusive
-
-### Workflow Automation
-- Scriptable command-line interface
-- Consistent output format
-- Suitable for scheduled execution (cron jobs)
-- Easy to extend with new checks
-
----
-
-## Target Users
-
+## Target users
 - Health informatics and IT students
-- Small clinics or laboratories
+- Small clinics and laboratories
 - System administrators who prefer CLI tools
 - Developers learning Rust through practical system projects
 
----
-
-## How It Works
-
-HealthOps_rs follows a simple processing pipeline:
-
-
-This reflects:
-- operating system concepts
-- text processing workflows
-- predictable and testable program behavior
-
----
-
 ## Installation
-
-### Run from Source (recommended for development)
-
-Requirements:
+### Requirements
 - Rust toolchain (stable)
 
+### From source (recommended)
 ```bash
 git clone https://github.com/Obeng-Sam10/HEALTHOPS_RS.git
 cd HEALTHOPS_RS
-cargo run help
+cargo run -- help
+```
 
-This reflects:
-- operating system concepts
-- text processing workflows
-- predictable and testable program behavior
+### Prebuilt binaries
+Prebuilt Linux binaries (x86_64, aarch64) may be available under GitHub Releases: https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases
 
----
-
-## Installation
-
-### Run from Source (recommended for development)
-
-Requirements:
-- Rust toolchain (stable)
-
+## Usage examples
+Show available commands
 ```bash
-git clone https://github.com/Obeng-Sam10/HEALTHOPS_RS.git
-cd HEALTHOPS_RS
-cargo run help
+cargo run -- help
+```
 
-Prebuilt Binaries
-Linux binaries are available via GitHub Releases:
-x86_64 (Linux)
-aarch64 (Linux / ARM)
-Download here:
-https://github.com/Obeng-Sam10/HEALTHOPS_RS/releases
+Scan logs (example)
+```bash
+cargo run -- scan logs --file /var/log/myapp.log --tail 100
+```
 
-Usage Examples
+Monitor network activity (example)
+```bash
+cargo run -- scan network --interval 30
+```
 
-Show available commands:
-cargo run help
-Scan logs:
-cargo run scan logs
-Monitor network activity:
-cargo run scan network
-The output is designed to be:
-human-readable
-automation-friendly
-suitable for reports or alerts
+The CLI is designed to be both human readable and automation-friendly; use flags to produce structured output for downstream parsing when needed.
 
-##Pricing Model (Conceptual)
-Payments are not implemented.
-Pricing is included to demonstrate digital business and product strategy.
+## Project structure
+Top-level layout
 
-Community (Free)
-Manual log and network checks
-Basic summaries
-Default thresholds
-Local usage
-
-Plus
-Custom thresholds
-Saved scan profiles
-Scheduled execution support
-Exportable summaries
-€7.99/month or €69.99/year
-
-Pro
-Advanced rule sets
-Multi-system profiles
-Structured output for trend analysis
-Priority support
-€18.99/month or €179.99/year
-
-Lifetime
-All Pro features
-Lifetime updates
-Commercial usage rights
-€299.99 (one-time)
-
-## Website & Distribution
-The project includes a marketing and distribution website built with HTML and CSS and deployed using GitHub Pages.
-The website:
-explains the problem and solution
-presents features and pricing
-links to GitHub Releases for downloads
-Website source:/docs
-
-live site:
-https://obeng-sam10.github.io/HEALTHOPS_RS/
-
-Project Structure
+```
 HEALTHOPS_RS/
-├── src/
-│   ├── main.rs        # Application entry point
-│   ├── cli.rs         # Command-line parsing
-│   ├── logs.rs        # Log analysis logic
-│   └── network.rs    # Network monitoring logic
-├── docs/
-│   ├── index.html     # Project website
-│   └── styles.css
-├── .github/workflows/
-│   └── main.yml       # Cross-compilation and release pipeline
-├── Cargo.toml
-└── README.md
- 
-## Course Context
-This project was developed as part of a Digital Business / Systems Programming course.
+- Cargo.toml               # Rust manifest
+- readme.md                # Project README (this file)
+- docs/                    # Website assets (GitHub Pages)
+  - index.html
+  - styles.css
+- src/
+  - main.rs                # Application entry point
+  - cli.rs                 # Command-line parsing
+  - logs.rs                # Log analysis logic
+  - network.rs             # Network monitoring logic
+```
 
-It demonstrates:
-Rust-based command-line application design
-Understanding of operating system concepts
-Automation and developer workflow thinking
-Product packaging, pricing, and distribution
-GitHub Actions for cross-compilation
-Deployment via GitHub Pages
+### Website and distribution
+- Docs live at: https://obeng-sam10.github.io/HEALTHOPS_RS/
+- Release binaries published on GitHub Releases when available.
 
-Limitations & Future Work
-Current limitations:
-No persistent database
-No real-time monitoring daemon
-Linux-focused binaries
-Possible future extensions:
-Alerting integrations (email, webhook)
-Additional log formats
-More advanced rule configuration
-Platform-specific builds
+## Development notes
+- Follow Rust best practices and keep dependencies minimal.
+- Add unit tests for parsing and summary logic in `src/`.
+
+## Contributing
+Contributions are welcome. Suggested workflow:
+```bash
+git fork <repo>
+git checkout -b feature/my-change
+# make changes
+git commit -am "Describe change"
+git push origin feature/my-change
+# open a PR
+```
+
+## Roadmap & limitations
+### Current limitations
+- No persistent storage or daemon mode (single-run CLI only)
+- Focused on Linux tooling and interfaces
+
+### Planned improvements
+- Alerting integrations (webhooks, email)
+- More log formats and parsers
+- Saved scan profiles and scheduled execution support
 
 ## License
-This project is provided for educational purposes.
+This project is provided for educational purposes. See `LICENSE` if present in the repository.
 
----
+## Contact
+Project: HealthOps_rs — maintainers and contributors on the repository.
 
-### ✅ Next step
-After pasting into GitHub:
+## Quick next steps
+- Review this `readme.md` and tell me if you want me to commit and push the change.
+- I can also add a brief `CONTRIBUTING.md` or a sample `examples/` folder if you'd like.
+### Current limitations
+- No persistent storage or daemon mode (single-run CLI only)
+- Focused on Linux tooling and interfaces
 
-```bash
-git add README.md
-git commit -m "Add comprehensive README"
-git push
+### Planned improvements
+- Alerting integrations (webhooks, email)
+- More log formats and parsers
+- Saved scan profiles and scheduled execution support
 
+## License
+This project is provided for educational purposes. See `LICENSE` if present in the repository.
+
+## Contact
+Project: HealthOps_rs — maintainers and contributors on the repository.
+
+## Quick next steps
+- Review this `readme.md` and tell me if you want me to commit and push the change.
+- I can also add a brief `CONTRIBUTING.md` or a sample `examples/` folder if you'd like.
+Structured output for trend analysis
+
+Priority support
