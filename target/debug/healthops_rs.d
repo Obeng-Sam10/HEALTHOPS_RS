@@ -1,0 +1,1 @@
+/Users/admin/healthops_rs/target/debug/healthops_rs: /Users/admin/healthops_rs/src/cli.rs /Users/admin/healthops_rs/src/logs.rs /Users/admin/healthops_rs/src/main.rs /Users/admin/healthops_rs/src/network.rs
