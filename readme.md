@@ -131,7 +131,7 @@ human-readable
 automation-friendly
 suitable for reports or alerts
 
-Pricing Model (Conceptual)
+##Pricing Model (Conceptual)
 Payments are not implemented.
 Pricing is included to demonstrate digital business and product strategy.
 
@@ -161,7 +161,7 @@ Lifetime updates
 Commercial usage rights
 €299.99 (one-time)
 
-Website & Distribution
+## Website & Distribution
 The project includes a marketing and distribution website built with HTML and CSS and deployed using GitHub Pages.
 The website:
 explains the problem and solution
@@ -187,7 +187,7 @@ HEALTHOPS_RS/
 ├── Cargo.toml
 └── README.md
  
-Course Context
+## Course Context
 This project was developed as part of a Digital Business / Systems Programming course.
 
 It demonstrates:
@@ -209,7 +209,7 @@ Additional log formats
 More advanced rule configuration
 Platform-specific builds
 
-License
+## License
 This project is provided for educational purposes.
 
 ---
